@@ -61,17 +61,18 @@ form.addEventListener('submit', (e) => {
     const craneType = document.getElementById('crane-type').value;
     const message = document.getElementById('message').value;
 
-    // Format message for WhatsApp
-    const textMessage = `*New Quote Request*\n\n*Name:* ${name}\n*Email:* ${email}\n*Crane Capacity:* ${craneType}\n*Project Details:* ${message}`;
-    const whatsappUrl = `https://wa.me/6589276729?text=${encodeURIComponent(textMessage)}`;
+    // Format message for Email
+    const emailSubject = `New Quote Request from ${name}`;
+    const emailBody = `Name: ${name}\nEmail: ${email}\nCrane Capacity: ${craneType}\nProject Details:\n${message}`;
+    const mailtoUrl = `mailto:transfield@singnet.com.sg?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
 
     // Update button state
-    btn.textContent = 'Redirecting...';
+    btn.textContent = 'Opening Email...';
     btn.style.opacity = '0.8';
     btn.disabled = true;
 
-    // Open WhatsApp
-    window.location.href = whatsappUrl;
+    // Open Mail Client
+    window.location.href = mailtoUrl;
 
     // Reset form and button after a short delay
     setTimeout(() => {
