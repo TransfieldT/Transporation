@@ -240,10 +240,11 @@ body {
     position: relative;
     display: flex;
     align-items: center;
-    background-image: url('XE1456B-4.jpeg');
+    background-image: url('./XE1456B-4.jpeg');
+    background-color: #1A1A24;
     background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 .hero-overlay {
