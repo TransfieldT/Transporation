@@ -62,16 +62,16 @@ form.addEventListener('submit', (e) => {
     const message = document.getElementById('message').value;
 
     // Format message for WhatsApp
-    const whatsappMessage = `*New Quote Request*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Crane Capacity:* ${craneType}%0A*Project Details:* ${message}`;
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=6589276729&text=${whatsappMessage}`;
+    const textMessage = `*New Quote Request*\n\n*Name:* ${name}\n*Email:* ${email}\n*Crane Capacity:* ${craneType}\n*Project Details:* ${message}`;
+    const whatsappUrl = `https://wa.me/6589276729?text=${encodeURIComponent(textMessage)}`;
 
     // Update button state
     btn.textContent = 'Redirecting...';
     btn.style.opacity = '0.8';
     btn.disabled = true;
 
-    // Open WhatsApp in a new tab
-    window.open(whatsappUrl, '_blank');
+    // Open WhatsApp
+    window.location.href = whatsappUrl;
 
     // Reset form and button after a short delay
     setTimeout(() => {
