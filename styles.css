@@ -383,6 +383,7 @@ body {
 
 .fleet-specs {
     list-style: none;
+    flex-grow: 1;
 }
 
 .fleet-specs li {
