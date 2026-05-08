@@ -50,41 +50,43 @@ document.querySelectorAll('.fade-up, .fade-in').forEach(el => {
 
 // Form submission handler
 const form = document.getElementById('quoteForm');
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const btn = form.querySelector('.btn-submit');
-    const originalText = btn.textContent;
+if (form) {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('.btn-submit');
+        const originalText = btn.textContent;
 
-    // Get form values
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const craneType = document.getElementById('crane-type').value;
-    const message = document.getElementById('message').value;
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const craneType = document.getElementById('crane-type').value;
+        const message = document.getElementById('message').value;
 
-    // Format message for WhatsApp
-    const textMessage = `*New Quote Request*\n\n*Name:* ${name}\n*Email:* ${email}\n*Crane Capacity:* ${craneType}\n*Project Details:* ${message}`;
-    const whatsappUrl = `https://wa.me/6589276729?text=${encodeURIComponent(textMessage)}`;
+        // Format message for WhatsApp
+        const textMessage = `*New Quote Request*\n\n*Name:* ${name}\n*Email:* ${email}\n*Crane Capacity:* ${craneType}\n*Project Details:* ${message}`;
+        const whatsappUrl = `https://wa.me/6589276729?text=${encodeURIComponent(textMessage)}`;
 
-    // Update button state
-    btn.textContent = 'Redirecting...';
-    btn.style.opacity = '0.8';
-    btn.disabled = true;
+        // Update button state
+        btn.textContent = 'Redirecting...';
+        btn.style.opacity = '0.8';
+        btn.disabled = true;
 
-    // Open WhatsApp
-    window.location.href = whatsappUrl;
+        // Open WhatsApp
+        window.location.href = whatsappUrl;
 
-    // Reset form and button after a short delay
-    setTimeout(() => {
-        btn.textContent = 'Request Sent!';
-        btn.style.backgroundColor = '#4CAF50';
-
-        form.reset();
-
+        // Reset form and button after a short delay
         setTimeout(() => {
-            btn.textContent = originalText;
-            btn.style.backgroundColor = '';
-            btn.style.opacity = '1';
-            btn.disabled = false;
-        }, 3000);
-    }, 1000);
-});
+            btn.textContent = 'Request Sent!';
+            btn.style.backgroundColor = '#4CAF50';
+
+            form.reset();
+
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.backgroundColor = '';
+                btn.style.opacity = '1';
+                btn.disabled = false;
+            }, 3000);
+        }, 1000);
+    });
+}
