@@ -731,22 +731,26 @@ body {
     position: fixed;
     bottom: 30px;
     right: 30px;
+    background-color: #25D366;
+    color: white;
     width: 60px;
     height: 60px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     z-index: 1000;
-    transition: transform 0.3s ease;
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .floating-whatsapp .whatsapp-icon {
-    width: 100%;
-    height: 100%;
+    width: 30px;
+    height: 30px;
 }
 
 .floating-whatsapp:hover {
+    background-color: #1EBE5D;
     transform: scale(1.1);
 }
 
