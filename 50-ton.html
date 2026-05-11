@@ -45,42 +45,69 @@
         </div>
     </header>
 
-    <!-- Specs Section -->
-    <section class="crane-specs section-padding">
-        <div class="container">
-            <div class="grid why-grid items-center">
-                <div class="why-image fade-in">
-                    <div class="image-placeholder">
-                        <div class="circle-graphic"></div>
-                        <div class="crane-silhouette">🏗️</div>
-                        <div
-                            style="position: absolute; bottom: 30px; font-weight: 800; color: var(--clr-dark); font-family: var(--font-heading); font-size: 2rem; opacity: 0.9;">
-                            50 Ton</div>
+   <!-- Specs Section -->
+<section class="crane-specs section-padding">
+    <div class="container">
+        <div class="grid why-grid items-center">
+
+            <!-- LEFT PHOTO SLIDER -->
+            <div class="why-image fade-in">
+                <div class="slider-container">
+
+                    <div class="slide active">
+                        <img src="assets/50-Ton-Lorry-Crane.jpeg" alt="Crane 1" class="crane-photo">
                     </div>
-                </div>
-                <div class="why-content fade-up delay-1">
-                    <h2>Crane <span class="text-red">Specifications</span></h2>
-                    <p>The industry standard for versatile lifting and transport operations.</p>
-                    <ul class="spec-list">
-                        <li><strong>Capacity:</strong> <span>50 Tons</span></li>
-                        <li><strong>Features:</strong> <span>Extended boom reach, Optimal for mid-sized machinery</span>
-                        </li>
-                        <li><strong>Availability:</strong> <span>24/7 with Certified Operator</span></li>
-                        <li><strong>Maintenance:</strong> <span>Rigorous scheduled maintenance</span></li>
-                    </ul>
-                    <div style="margin-top: 30px;">
-                        <a href="quote.html" class="btn btn-primary">Book This Crane</a>
-                        <a href="index.html#fleet" class="btn btn-outline"
-                            style="color: var(--clr-dark); border-color: var(--clr-silver-dark); margin-left: 10px;"
-                            onmouseover="this.style.backgroundColor='var(--clr-silver-light)'"
-                            onmouseout="this.style.backgroundColor='transparent'">Back to Fleet</a>
+
+                    <div class="slide">
+                        <img src="assets/50-Ton-Lorry-Crane-2.png" alt="Crane 2" class="crane-photo crane-photo-2">
                     </div>
+
+                    <div class="slide">
+                        <img src="assets/50-Ton-Lorry-Crane-3.jpeg" alt="Crane 3" class="crane-photo">
+                    </div>
+
+                    <div class="slider-controls">
+                        <button class="slider-btn" id="prevBtn">&#10094;</button>
+
+                        <div class="dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+
+                        <button class="slider-btn" id="nextBtn">&#10095;</button>
+                    </div>
+
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
+            <!-- RIGHT DESCRIPTION -->
+            <div class="why-content fade-up delay-1">
+                <h2>Crane <span class="text-red">Specifications</span></h2>
+                <p>The industry standard for versatile lifting and transport operations.</p>
+
+                <ul class="spec-list">
+                    <li><strong>Capacity:</strong> <span>50 Tons</span></li>
+                    <li><strong>Features:</strong> <span>Extended boom reach, Optimal for mid-sized machinery</span></li>
+                    <li><strong>Availability:</strong> <span>Certified Operator</span></li>
+                    <li><strong>Maintenance:</strong> <span>Rigorous scheduled maintenance</span></li>
+                </ul>
+
+                <div style="margin-top: 30px;">
+                    <a href="quote.html" class="btn btn-primary">Book This Crane</a>
+                    <a href="index.html#fleet"
+                       class="btn btn-outline"
+                       style="color: var(--clr-dark); border-color: var(--clr-silver-dark); margin-left: 10px;">
+                        Back to Fleet
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+   <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -88,11 +115,11 @@
                     <img src="assets/Translogo.png" alt="Transfield Logo" class="footer-logo">
                     <p>Your trusted partner for professional lorry crane rental services.</p>
                 </div>
-                <div class="nav-links">
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
                     <a href="index.html#services">Services</a>
                     <a href="index.html#fleet">Our Fleet</a>
                     <a href="quote.html">Contact Us</a>
-                    <a href="quote.html" class="btn btn-primary">Request Quote</a>
                 </div>
                 <div class="footer-contact">
                     <h4>Contact</h4>
