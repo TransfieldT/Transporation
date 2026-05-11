@@ -90,3 +90,57 @@ if (form) {
         }, 1000);
     });
 }
+
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+
+let currentSlide = 0;
+
+function showSlide(index) {
+
+    slides.forEach(slide => {
+        slide.classList.remove("active");
+    });
+
+    dots.forEach(dot => {
+        dot.classList.remove("active");
+    });
+
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
+}
+
+/* NEXT BUTTON */
+document.getElementById("nextBtn").addEventListener("click", () => {
+
+    currentSlide++;
+
+    if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    }
+
+    showSlide(currentSlide);
+});
+
+/* PREV BUTTON */
+document.getElementById("prevBtn").addEventListener("click", () => {
+
+    currentSlide--;
+
+    if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+    }
+
+    showSlide(currentSlide);
+});
+
+/* DOT CLICK */
+dots.forEach((dot, index) => {
+
+    dot.addEventListener("click", () => {
+
+        currentSlide = index;
+
+        showSlide(currentSlide);
+    });
+});
