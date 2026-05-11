@@ -144,3 +144,5 @@ dots.forEach((dot, index) => {
         showSlide(currentSlide);
     });
 });
+
+
