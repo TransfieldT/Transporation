@@ -851,3 +851,176 @@ body {
     color: var(--clr-text-light);
     text-align: right;
 }
+
+/* SLIDER for Photo of Crane */
+.slider-container {
+    width: 100%;
+    max-width: 700px;
+}
+
+/* EACH SLIDE */
+.slide {
+    display: none;
+}
+
+.slide.active {
+    display: block;
+}
+
+/* IMAGE */
+.crane-photo {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    border-radius: 35px;
+    display: block;
+}
+
+/* CONTROLS BELOW IMAGE */
+.slider-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    margin-top: 25px;
+}
+
+/* BUTTONS */
+.slider-btn {
+    width: 58px;
+    height: 58px;
+    border: none;
+    border-radius: 50%;
+    background: #e8e8e8;
+    color: #666;
+    font-size: 28px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.slider-btn:hover {
+    background: #d9d9d9;
+}
+
+/* DOT CONTAINER */
+.dots {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #e8e8e8;
+    padding: 16px 28px;
+    border-radius: 50px;
+}
+
+/* DOTS */
+.dot {
+    width: 12px;
+    height: 12px;
+    background: #9a9a9a;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.dot.active {
+    background: #333;
+}
+
+/* MAKE IMAGE + INFO SIDE BY SIDE */
+.why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* IMAGE */
+.crane-photo {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    border-radius: 30px;
+    display: block;
+}
+
+/* SLIDER */
+.slider-container {
+    width: 100%;
+}
+
+/* SLIDES */
+.slide {
+    display: none;
+}
+
+.slide.active {
+    display: block;
+}
+
+/* CONTROLS */
+.slider-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    margin-top: 25px;
+}
+
+/* BUTTONS */
+.slider-btn {
+    width: 58px;
+    height: 58px;
+    border: none;
+    border-radius: 50%;
+    background: #e8e8e8;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* DOTS */
+.dots {
+    display: flex;
+    gap: 12px;
+    background: #e8e8e8;
+    padding: 16px 28px;
+    border-radius: 50px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: #999;
+    border-radius: 50%;
+}
+
+.dot.active {
+    background: #222;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+
+   .crane-photo {
+    width: 100%;
+    aspect-ratio: 16 / 10; /* keeps image box natural */
+    object-fit: cover;
+    object-position: center;
+    border-radius: 30px;
+    display: block;
+}
+}
+.crane-photo-2 {
+    object-fit: cover;
+    object-position: center center;
+    background: #f2f2f2;
+    padding: 6px;
+}
+.why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
