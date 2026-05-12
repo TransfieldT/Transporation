@@ -1,148 +1,172 @@
-// Navbar Scroll Effect
-const navbar = document.getElementById('navbar');
+    // =====================================
+    // MOBILE NAVIGATION
+    // =====================================
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
+    document.addEventListener("DOMContentLoaded", function () {
 
-// Mobile Menu Toggle
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.querySelector('.nav-links');
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("navLinks");
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('active');
-});
-
-// Close mobile menu when a link is clicked
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-    });
-});
-
-// Intersection Observer for Scroll Animations
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.15
-};
-
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            // Optional: stop observing once animated
-            // observer.unobserve(entry.target);
+        if (hamburger && navLinks) {
+            hamburger.addEventListener("click", function () {
+                hamburger.classList.toggle("active");
+                navLinks.classList.toggle("active");
+            });
         }
-    });
-}, observerOptions);
 
-// Select elements to animate
-document.querySelectorAll('.fade-up, .fade-in').forEach(el => {
-    observer.observe(el);
-});
-
-// Form submission handler
-const form = document.getElementById('quoteForm');
-if (form) {
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const btn = form.querySelector('.btn-submit');
-        const originalText = btn.textContent;
-
-        // Get form values
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const craneType = document.getElementById('crane-type').value;
-        const message = document.getElementById('message').value;
-
-        // Format message for WhatsApp
-        const textMessage = `*New Quote Request*\n\n*Name:* ${name}\n*Email:* ${email}\n*Crane Capacity:* ${craneType}\n*Project Details:* ${message}`;
-        const whatsappUrl = `https://wa.me/6589276729?text=${encodeURIComponent(textMessage)}`;
-
-        // Update button state
-        btn.textContent = 'Redirecting...';
-        btn.style.opacity = '0.8';
-        btn.disabled = true;
-
-        // Open WhatsApp
-        window.location.href = whatsappUrl;
-
-        // Reset form and button after a short delay
-        setTimeout(() => {
-            btn.textContent = 'Request Sent!';
-            btn.style.backgroundColor = '#4CAF50';
-
-            form.reset();
-
-            setTimeout(() => {
-                btn.textContent = originalText;
-                btn.style.backgroundColor = '';
-                btn.style.opacity = '1';
-                btn.disabled = false;
-            }, 3000);
-        }, 1000);
-    });
-}
-
-const slides = document.querySelectorAll(".slide");
-const dots = document.querySelectorAll(".dot");
-
-let currentSlide = 0;
-
-function showSlide(index) {
-
-    slides.forEach(slide => {
-        slide.classList.remove("active");
     });
 
-    dots.forEach(dot => {
-        dot.classList.remove("active");
+
+    // =====================================
+    // NAVBAR SCROLL EFFECT
+    // =====================================
+
+    window.addEventListener("scroll", function () {
+
+        const navbar = document.getElementById("navbar");
+
+        if (!navbar) return;
+
+        if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
+
     });
 
-    slides[index].classList.add("active");
-    dots[index].classList.add("active");
-}
 
-/* NEXT BUTTON */
-document.getElementById("nextBtn").addEventListener("click", () => {
+    // =====================================
+    // FADE-IN ANIMATION
+    // =====================================
 
-    currentSlide++;
+    document.addEventListener("DOMContentLoaded", function () {
 
-    if (currentSlide >= slides.length) {
-        currentSlide = 0;
-    }
+        const animatedElements = document.querySelectorAll(".fade-up, .fade-in");
 
-    showSlide(currentSlide);
-});
+        if (!animatedElements.length) return;
 
-/* PREV BUTTON */
-document.getElementById("prevBtn").addEventListener("click", () => {
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
 
-    currentSlide--;
+        animatedElements.forEach(function (element) {
+            observer.observe(element);
+        });
 
-    if (currentSlide < 0) {
-        currentSlide = slides.length - 1;
-    }
-
-    showSlide(currentSlide);
-});
-
-/* DOT CLICK */
-dots.forEach((dot, index) => {
-
-    dot.addEventListener("click", () => {
-
-        currentSlide = index;
-
-        showSlide(currentSlide);
     });
-});
 
 
+    // =====================================
+    // QUOTE FORM EMAIL SUBMISSION
+    // =====================================
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const quoteForm = document.getElementById("quoteForm");
+
+        if (!quoteForm) return;
+
+        quoteForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const name = document.getElementById("name")?.value || "";
+            const company = document.getElementById("company")?.value || "";
+            const phone = document.getElementById("phone")?.value || "";
+            const email = document.getElementById("email")?.value || "";
+            const service = document.getElementById("service")?.value || "";
+            const date = document.getElementById("date")?.value || "";
+            const message = document.getElementById("message")?.value || "";
+
+            const subject = "Crane Rental Request";
+
+            const body = `
+    Name: ${name}
+
+    Company: ${company}
+
+    Mobile: ${phone}
+
+    Email: ${email}
+
+    Preferred Date: ${date}
+
+    Message:
+    ${message}
+    `;
+
+            const mailtoLink =
+                `mailto:transfield@singnet.com.sg?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            window.location.href = mailtoLink;
+
+        });
+
+    });
+
+
+    // =====================================
+    // CRANE IMAGE SLIDER
+    // =====================================
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides = document.querySelectorAll(".slide");
+        const dots = document.querySelectorAll(".dot");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+
+        if (!slides.length || !dots.length || !prevBtn || !nextBtn) return;
+
+        let currentSlide = 0;
+
+        function showSlide(index) {
+
+            slides.forEach(function (slide) {
+                slide.classList.remove("active");
+            });
+
+            dots.forEach(function (dot) {
+                dot.classList.remove("active");
+            });
+
+            slides[index].classList.add("active");
+            dots[index].classList.add("active");
+
+        }
+
+        nextBtn.addEventListener("click", function () {
+            currentSlide++;
+
+            if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            }
+
+            showSlide(currentSlide);
+        });
+
+        prevBtn.addEventListener("click", function () {
+            currentSlide--;
+
+            if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            }
+
+            showSlide(currentSlide);
+        });
+
+        dots.forEach(function (dot, index) {
+            dot.addEventListener("click", function () {
+                currentSlide = index;
+                showSlide(currentSlide);
+            });
+        });
+
+    });
