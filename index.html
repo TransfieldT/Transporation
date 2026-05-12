@@ -21,14 +21,14 @@
             <a href="index.html" class="logo">
                 <img src="assets/Translogo.png" alt="Transfield Logo" class="logo-img">
             </a>
-            <div class="nav-links">
+            <div class="nav-links" id="navLinks">
                 <a href="#fleet">Our Fleet</a>
                 <a href="#services">Services</a>
                 <a href="Equipment.html">Equipment</a>
                 <a href="#why-us">Why Choose Us</a>
                 <a href="quote.html" class="btn btn-primary">Request Quote</a>
             </div>
-            <div class="hamburger" id="hamburger">
+            <div class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false" role="button" tabindex="0">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -244,6 +244,81 @@
     </a>
 
     <script src="script.js"></script>
+
+    <!-- Mobile navigation fix: matches the working 25-ton page menu behavior -->
+    <style>
+        @media (max-width: 768px) {
+            .nav-container {
+                position: relative;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                background: #ffffff;
+                padding: 12px 20px 20px;
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+                z-index: 9999;
+            }
+
+            .nav-links.active {
+                display: flex !important;
+            }
+
+            .nav-links a {
+                display: block;
+                width: 100%;
+                padding: 14px 0;
+            }
+
+            .hamburger {
+                display: flex;
+                cursor: pointer;
+                z-index: 10000;
+                touch-action: manipulation;
+            }
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+
+            if (!hamburger || !navLinks) return;
+
+            function setMenu(open) {
+                navLinks.classList.toggle('active', open);
+                hamburger.classList.toggle('active', open);
+                hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+            }
+
+            function toggleMenu(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                setMenu(!navLinks.classList.contains('active'));
+            }
+
+            hamburger.addEventListener('click', toggleMenu);
+            hamburger.addEventListener('touchend', toggleMenu, { passive: false });
+            hamburger.addEventListener('keydown', function (event) {
+                if (event.key === 'Enter' || event.key === ' ') toggleMenu(event);
+            });
+
+            navLinks.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    setMenu(false);
+                });
+            });
+        });
+    </script>
+
 </body>
 
 </html>
