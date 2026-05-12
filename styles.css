@@ -1101,3 +1101,34 @@ iframe {
         text-align: center;
     }
 }
+/* Compact red mobile hamburger */
+@media (max-width: 768px) {
+  .hamburger {
+    width: 34px;
+    height: 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .hamburger span {
+    width: 28px;
+    height: 4px;
+    background-color: #D32F2F;
+    border-radius: 999px;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+}
