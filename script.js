@@ -81,7 +81,7 @@
             const company = document.getElementById("company")?.value || "";
             const phone = document.getElementById("phone")?.value || "";
             const email = document.getElementById("email")?.value || "";
-            const service = document.getElementById("service")?.value || "";
+       const service = document.getElementById("crane-type")?.value || "";
             const date = document.getElementById("date")?.value || "";
             const message = document.getElementById("message")?.value || "";
 
