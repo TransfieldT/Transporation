@@ -1342,3 +1342,86 @@ iframe {
         text-align: center;
     }
 }
+
+/* === FINAL MOBILE FIXES - logo size + spec text ===
+   Keep this at the very bottom of styles.css */
+
+/* Mobile header logo: double size compared to old 64px */
+@media (max-width: 768px) {
+    .navbar {
+        min-height: 120px;
+        padding: 10px 0;
+    }
+
+    .logo-img,
+    .navbar.scrolled .logo-img {
+        height: 128px;
+        width: auto;
+        max-width: 70vw;
+    }
+
+    .nav-container {
+        min-height: 110px;
+    }
+
+    .hamburger {
+        z-index: 1001;
+    }
+}
+
+/* Very small phones: keep logo big, but not overflowing */
+@media (max-width: 480px) {
+    .logo-img,
+    .navbar.scrolled .logo-img {
+        height: 115px;
+        max-width: 72vw;
+    }
+
+    .navbar {
+        min-height: 110px;
+    }
+
+    .nav-container {
+        min-height: 100px;
+    }
+}
+
+/* Mobile crane/equipment specification text fix */
+@media (max-width: 768px) {
+    .spec-list {
+        width: 100%;
+        max-width: 100%;
+        margin: 24px 0 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .spec-list li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 4px;
+        margin-bottom: 18px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .spec-list li strong {
+        min-width: 0;
+        width: 100%;
+        display: block;
+        text-align: center;
+        line-height: 1.25;
+    }
+
+    .spec-list li span {
+        width: 100%;
+        display: block;
+        flex: none;
+        text-align: center;
+        line-height: 1.45;
+        overflow-wrap: anywhere;
+        word-break: normal;
+    }
+}
