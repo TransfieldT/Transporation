@@ -1,14 +1,11 @@
 :root {
     /* Color Palette - Red & Silver theme */
     --clr-primary: #D32F2F;
-    /* Deep Red */
     --clr-primary-hover: #B71C1C;
     --clr-silver: #B0BEC5;
-    /* Silver/Grey */
     --clr-silver-dark: #78909C;
     --clr-silver-light: #ECEFF1;
     --clr-dark: #1A1A24;
-    /* Deep Navy/Black for contrast */
     --clr-darker: #111118;
     --clr-white: #FFFFFF;
     --clr-text: #333333;
@@ -41,6 +38,12 @@ body {
     background-color: var(--clr-white);
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
 }
 
 /* Utilities */
@@ -79,7 +82,8 @@ body {
     margin-bottom: 60px;
 }
 
-.section-header h2 {
+.section-header h2,
+.why-content h2 {
     font-family: var(--font-heading);
     font-size: 2.5rem;
     font-weight: 800;
@@ -179,27 +183,15 @@ body {
 }
 
 .logo-img {
-    height: 196px;
+    height: 180px;
     width: auto;
     max-width: 100%;
     display: block;
     transition: var(--transition);
 }
 
-@media (max-width: 768px) {
-  .logo-img {
-    height: 90px;
-  }
-
-  .navbar {
-    min-height: 90px;
-    padding: 12px 20px;
-  }
-}
-
-
 .navbar.scrolled .logo-img {
-    height: 154px;
+    height: 140px;
 }
 
 .logo-red {
@@ -214,36 +206,14 @@ body {
     color: var(--clr-white);
 }
 
-@media (max-width: 768px) {
-    .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--clr-dark);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 30px 0;
-        gap: 20px; /* Space between menu items */
-        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-        transition: clip-path 0.4s ease;
-        z-index: 999;
-    }
-
-    .nav-links.active {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-
-    /* Ensure the hamburger icon is visible */
-    .hamburger {
-        display: flex;
-        z-index: 1001;
-    }
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
 }
 
 .nav-links a:not(.btn) {
-   color: var(--clr-primary);
+    color: var(--clr-primary);
     text-decoration: none;
     font-weight: 500;
     transition: var(--transition);
@@ -440,15 +410,12 @@ body {
     font-weight: 500;
 }
 
+/* Why Choose Us */
 .why-content h2 {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    font-weight: 800;
     margin-bottom: 20px;
-    color: var(--clr-dark);
 }
 
-.why-content>p {
+.why-content > p {
     color: var(--clr-text-light);
     font-size: 1.1rem;
     margin-bottom: 40px;
@@ -578,6 +545,73 @@ body {
     font-size: 1.1rem;
 }
 
+/* WhatsApp */
+.whatsapp-link {
+    color: var(--clr-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.whatsapp-link:hover {
+    color: var(--clr-primary-hover);
+    transform: translateX(4px);
+}
+
+.contact-methods {
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: rgba(211, 47, 47, 0.05);
+    border-radius: var(--border-radius);
+}
+
+.contact-alternative {
+    font-size: 0.95rem;
+    color: var(--clr-text);
+}
+
+.footer-contact a.whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.whatsapp-icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.floating-whatsapp {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.floating-whatsapp .whatsapp-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.floating-whatsapp:hover {
+    background-color: #1EBE5D;
+    transform: scale(1.1);
+}
+
 /* Footer */
 .footer {
     background-color: #0d0d12;
@@ -593,7 +627,7 @@ body {
 }
 
 .footer-logo {
-    height: 196px;
+    height: 110px;
     width: auto;
     max-width: 100%;
     margin-bottom: 15px;
@@ -669,156 +703,7 @@ body {
     transition-delay: 0.6s;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-    .hero h1 {
-        font-size: 3.5rem;
-    }
-
-    /* Fix Grid Stacking */
-    .why-grid, .equipment-grid {
-        grid-template-columns: 1fr !important;
-        gap: 30px;
-        text-align: center;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--clr-dark);
-        flex-direction: column;
-        padding: 30px 0;
-        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-        transition: clip-path 0.4s ease;
-    }
-
-    .nav-links.active {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    .hamburger.active span:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
-    }
-
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
-    }
-
-    .hero h1 {
-        font-size: 2.8rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .contact-form {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .contact-form-wrapper {
-        padding: 30px 20px;
-    }
-}
-
-/* WhatsApp Link Styling */
-.whatsapp-link {
-    color: var(--clr-primary);
-    text-decoration: none;
-    font-weight: 600;
-    transition: var(--transition);
-    display: inline-block;
-}
-
-.whatsapp-link:hover {
-    color: var(--clr-primary-hover);
-    transform: translateX(4px);
-}
-
-.contact-methods {
-    text-align: center;
-    margin-bottom: 25px;
-    padding: 15px;
-    background-color: rgba(211, 47, 47, 0.05);
-    border-radius: var(--border-radius);
-}
-
-.contact-alternative {
-    font-size: 0.95rem;
-    color: var(--clr-text);
-}
-
-.footer-contact a.whatsapp-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 8px;
-}
-
-.whatsapp-icon {
-    width: 24px;
-    height: 24px;
-    display: block;
-}
-
-.floating-whatsapp {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #25D366;
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.floating-whatsapp .whatsapp-icon {
-    width: 30px;
-    height: 30px;
-}
-
-.floating-whatsapp:hover {
-    background-color: #1EBE5D;
-    transform: scale(1.1);
-}
-
-@media (max-width: 768px) {
-    .floating-whatsapp {
-        bottom: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-    }
-}
-
-/* --- INDIVIDUAL CRANE & EQUIPMENT PAGES --- */
+/* Individual Crane & Equipment Pages */
 .page-hero {
     height: 60vh;
     min-height: 400px;
@@ -852,34 +737,24 @@ body {
     background-color: var(--clr-white);
 }
 
-.spec-list {
-    list-style: none;
-    font-size: 1.1rem;
-    margin-top: 20px;
+.why-grid,
+.equipment-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 60px;
+    align-items: center;
 }
 
-.spec-list li:last-child {
-    border-bottom: none;
+.equipment-card {
+    max-width: 100%;
 }
 
-.spec-list li strong {
-    color: var(--clr-dark);
-    font-weight: 600;
-}
-
-.spec-list li span {
-    color: var(--clr-text-light);
-    text-align: center;
-}
-
-/* --- SLIDER & PHOTOS --- */
 .slider-container {
     width: 100%;
     max-width: 700px;
     margin: 0 auto;
 }
 
-/* EACH SLIDE */
 .slide {
     display: none;
 }
@@ -888,40 +763,22 @@ body {
     display: block;
 }
 
-
-
-/* IMAGE */
-/* Fix Images */
-    .crane-photo {
-        height: auto;
-        aspect-ratio: 16 / 10;
-        border-radius: 20px;
-    }
-
-@media (max-width: 768px) {
-    /* Fix Navigation */
-    .logo-img {
-        height: 100px;
-    }
-
-    .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--clr-dark);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 30px 0;
-        gap: 20px;
-        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-        transition: clip-path 0.4s ease;
-    }
-
+.crane-photo {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 30px;
+    display: block;
 }
 
-/* CONTROLS BELOW IMAGE */
+.crane-photo-2 {
+    object-fit: cover;
+    object-position: center center;
+    background: #f2f2f2;
+    padding: 6px;
+}
+
 .slider-controls {
     display: flex;
     justify-content: center;
@@ -930,7 +787,6 @@ body {
     margin-top: 25px;
 }
 
-/* BUTTONS */
 .slider-btn {
     width: 58px;
     height: 58px;
@@ -947,83 +803,9 @@ body {
     background: #d9d9d9;
 }
 
-/* DOT CONTAINER */
 .dots {
     display: flex;
     align-items: center;
-    gap: 12px;
-    background: #e8e8e8;
-    padding: 16px 28px;
-    border-radius: 50px;
-}
-
-/* DOTS */
-.dot {
-    width: 12px;
-    height: 12px;
-    background: #9a9a9a;
-    border-radius: 50%;
-    transition: 0.3s;
-}
-
-.dot.active {
-    background: #333;
-}
-
-/* MAKE IMAGE + INFO SIDE BY SIDE */
-.why-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-}
-
-/* IMAGE */
-.crane-photo {
-    width: 100%;
-    height: 520px;
-    object-fit: cover;
-    border-radius: 30px;
-    display: block;
-}
-
-/* SLIDER */
-.slider-container {
-    width: 100%;
-}
-
-/* SLIDES */
-.slide {
-    display: none;
-}
-
-.slide.active {
-    display: block;
-}
-
-/* CONTROLS */
-.slider-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 22px;
-    margin-top: 25px;
-}
-
-/* BUTTONS */
-.slider-btn {
-    width: 58px;
-    height: 58px;
-    border: none;
-    border-radius: 50%;
-    background: #e8e8e8;
-    font-size: 28px;
-    cursor: pointer;
-}
-
-/* DOTS */
-.dots {
-    display: flex;
     gap: 12px;
     background: #e8e8e8;
     padding: 16px 28px;
@@ -1035,153 +817,72 @@ body {
     height: 12px;
     background: #999;
     border-radius: 50%;
+    transition: 0.3s;
 }
 
 .dot.active {
     background: #222;
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
-
-    .why-grid {
-        grid-template-columns: 1fr;
-    }
-
-   .crane-photo {
-    width: 100%;
-    aspect-ratio: 16 / 10; /* keeps image box natural */
-    object-fit: cover;
-    object-position: center;
-    border-radius: 30px;
-    display: block;
-}
-}
-.crane-photo-2 {
-    object-fit: cover;
-    object-position: center center;
-    background: #f2f2f2;
-    padding: 6px;
-}
-.why-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
+/* Specification List */
+.spec-list {
+    list-style: none;
+    max-width: 700px;
+    margin-top: 30px;
+    padding: 0;
+    font-size: 1.1rem;
 }
 
-/* 1. Desktop Styles (Default) */
-.why-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.crane-photo {
-    width: 100%;
-    height: 520px; /* Fixed height for desktop */
-    object-fit: cover;
-    border-radius: 30px;
-    display: block;
-}
-
-/* 2. Mobile Styles (Overrides) */
-@media (max-width: 768px) {
-    .why-grid {
-        grid-template-columns: 1fr; /* Force stack */
-        gap: 30px;
-        text-align: center;
-    }
-
-    .crane-photo {
-        height: auto; /* Reset fixed height */
-        aspect-ratio: 16 / 10; /* Maintain natural shape */
-        border-radius: 20px;
-    }
-
-    .slider-container {
-        max-width: 100%;
-    }
-
-    /* Fix for the spec list text alignment on mobile */
-    .spec-list li {
-        flex-direction: column;
-        text-align: center;
-        gap: 5px;
-    }
-
-    .spec-list li span {
-        text-align: center;
-    }
-}
-/* Fix Equipment Cards */
-    .equipment-card {
-        max-width: 100%;
-    }
-
-/* === FINAL RESPONSIVE FIXES ===
-   Keep this block at the very end so it overrides earlier duplicate rules. */
-
-/* Desktop navigation */
-.nav-links {
+.spec-list li {
     display: flex;
-    align-items: center;
-    gap: 30px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 12px;
+    margin-bottom: 18px;
+    text-align: left;
 }
 
-/* Desktop Header Logo */
-.logo-img {
-  height: 180px;   /* was around 90px */
-  width: auto;
+.spec-list li:last-child {
+    border-bottom: none;
 }
 
-/* Optional: when navbar scrolls */
-.navbar.scrolled .logo-img {
-  height: 140px;
+.spec-list li strong {
+    min-width: 110px;
+    text-align: left;
+    font-weight: 700;
+    color: var(--clr-dark);
 }
 
-.footer-logo {
-    height: 110px;
-    width: auto;
-    max-width: 100%;
+.spec-list li span {
+    flex: 1;
+    text-align: left;
+    color: var(--clr-text-light);
 }
 
-/* General responsive media */
-img,
-video,
-iframe {
-    max-width: 100%;
-}
-
-/* Crane/equipment page layout */
-.why-grid,
-.equipment-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 60px;
-    align-items: center;
-}
-
-.crane-photo {
-    width: 100%;
-    height: 520px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 30px;
-    display: block;
-}
-
+/* Tablet */
 @media (max-width: 992px) {
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
     .why-grid,
     .equipment-grid {
         grid-template-columns: 1fr;
         gap: 30px;
         text-align: center;
     }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+
     .section-padding {
         padding: 60px 0;
     }
@@ -1192,12 +893,13 @@ iframe {
     }
 
     .navbar {
+        min-height: 120px;
         padding: 8px 0;
     }
 
     .logo-img,
     .navbar.scrolled .logo-img {
-        height: 64px;
+        height: 128px;
     }
 
     .nav-links {
@@ -1213,6 +915,7 @@ iframe {
         gap: 20px;
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
         transition: clip-path 0.4s ease;
+        z-index: 999;
     }
 
     .nav-links.active {
@@ -1221,12 +924,25 @@ iframe {
 
     .hamburger {
         display: flex;
+        z-index: 1001;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
     }
 
     .hero {
         min-height: 680px;
         height: auto;
-        padding: 120px 0 70px;
+        padding: 140px 0 70px;
     }
 
     .hero h1 {
@@ -1240,21 +956,46 @@ iframe {
     .hero-buttons {
         flex-direction: column;
         align-items: stretch;
+        gap: 18px;
     }
 
-    .hero-buttons .btn {
+    .hero-buttons .btn,
+    .page-hero .btn {
+        width: 100%;
         text-align: center;
     }
 
+    .hero-buttons .btn:not(:last-child),
+    .page-hero .btn:not(:last-child) {
+        margin-bottom: 18px;
+    }
+
     .services-grid,
-    .fleet-grid {
+    .fleet-grid,
+    .contact-form,
+    .footer-grid {
         grid-template-columns: 1fr;
+    }
+
+    .contact-form-wrapper {
+        padding: 30px 20px;
+    }
+
+    .why-grid,
+    .equipment-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
     }
 
     .crane-photo {
         height: auto;
         aspect-ratio: 16 / 10;
         border-radius: 20px;
+    }
+
+    .slider-container {
+        max-width: 100%;
     }
 
     .slider-btn {
@@ -1267,17 +1008,38 @@ iframe {
         padding: 12px 20px;
     }
 
-    .contact-form-wrapper {
-        padding: 30px 20px;
+    .spec-list {
+        width: 100%;
+        padding: 0 10px;
     }
 
-    .contact-form {
-        grid-template-columns: 1fr;
+    .spec-list li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2px;
+        margin-bottom: 24px;
     }
 
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
+    .spec-list li strong {
+        min-width: unset;
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    .spec-list li span {
+        width: 100%;
+        text-align: center;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .floating-whatsapp {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
     }
 
     .footer-logo {
@@ -1285,11 +1047,8 @@ iframe {
     }
 }
 
+/* Small Mobile */
 @media (max-width: 480px) {
-    .container {
-        padding: 0 16px;
-    }
-
     .btn {
         width: 100%;
         text-align: center;
@@ -1299,151 +1058,5 @@ iframe {
         min-height: 320px;
         height: auto;
         padding: 120px 0 60px;
-    }
-}
-/* Clean Left Alignment for Crane Specs */
-.spec-list {
-    max-width: 700px;
-    margin-top: 30px;
-    padding: 0;
-}
-
-.spec-list li {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 12px;
-    margin-bottom: 18px;
-    text-align: left;
-}
-
-.spec-list li strong {
-    min-width: 130px;
-    text-align: left;
-    font-weight: 700;
-    color: var(--clr-dark);
-}
-
-.spec-list li span {
-    flex: 1;
-    text-align: left;
-    color: var(--clr-text-light);
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    .spec-list li {
-        flex-direction: column;
-        gap: 4px;
-    }
-
-    .spec-list li strong,
-    .spec-list li span {
-        text-align: center;
-    }
-}
-
-/* === FINAL MOBILE FIXES - logo size + spec text ===
-   Keep this at the very bottom of styles.css */
-
-/* Mobile header logo: double size compared to old 64px */
-@media (max-width: 768px) {
-    .navbar {
-        min-height: 120px;
-        padding: 10px 0;
-    }
-
-    .logo-img,
-    .navbar.scrolled .logo-img {
-        height: 128px;
-        width: auto;
-        max-width: 70vw;
-    }
-
-    .nav-container {
-        min-height: 110px;
-    }
-
-    .hamburger {
-        z-index: 1001;
-    }
-}
-
-/* Very small phones: keep logo big, but not overflowing */
-@media (max-width: 480px) {
-    .logo-img,
-    .navbar.scrolled .logo-img {
-        height: 115px;
-        max-width: 72vw;
-    }
-
-    .navbar {
-        min-height: 110px;
-    }
-
-    .nav-container {
-        min-height: 100px;
-    }
-}
-
-/* Mobile crane/equipment specification text fix */
-@media (max-width: 768px) {
-    .spec-list {
-        width: 100%;
-        max-width: 100%;
-        margin: 24px 0 0;
-        padding: 0;
-        list-style: none;
-    }
-
-    .spec-list li {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 4px;
-        margin-bottom: 18px;
-        text-align: center;
-        width: 100%;
-    }
-
-    .spec-list li strong {
-        min-width: 0;
-        width: 100%;
-        display: block;
-        text-align: center;
-        line-height: 1.25;
-    }
-
-    .spec-list li span {
-        width: 100%;
-        display: block;
-        flex: none;
-        text-align: center;
-        line-height: 1.45;
-        overflow-wrap: anywhere;
-        word-break: normal;
-    }
-}
-
-/* Mobile button spacing fix */
-@media (max-width: 768px) {
-
-    .hero-buttons,
-    .page-hero .hero-buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 18px !important;
-        margin-top: 24px;
-    }
-
-    .hero-buttons .btn,
-    .page-hero .btn {
-        margin-bottom: 18px;
-    }
-
-    .hero-buttons .btn:last-child,
-    .page-hero .btn:last-child {
-        margin-bottom: 0;
     }
 }
