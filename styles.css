@@ -1439,6 +1439,11 @@ iframe {
 
     .hero-buttons .btn,
     .page-hero .btn {
-        width: 100%;
+        margin-bottom: 18px;
+    }
+
+    .hero-buttons .btn:last-child,
+    .page-hero .btn:last-child {
+        margin-bottom: 0;
     }
 }
