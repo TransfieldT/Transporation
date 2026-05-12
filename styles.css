@@ -1318,7 +1318,7 @@ iframe {
 }
 
 .spec-list li strong {
-    min-width: 160px;
+    min-width: 130px;
     text-align: left;
     font-weight: 700;
     color: var(--clr-dark);
@@ -1423,5 +1423,20 @@ iframe {
         line-height: 1.45;
         overflow-wrap: anywhere;
         word-break: normal;
+    }
+}
+
+/* Mobile spacing for buttons */
+@media (max-width: 768px) {
+
+    .hero-buttons,
+    .page-hero .hero-buttons {
+        gap: 16px;
+        margin-top: 20px;
+    }
+
+    .hero-buttons .btn,
+    .page-hero .btn {
+        margin-bottom: 10px;
     }
 }
