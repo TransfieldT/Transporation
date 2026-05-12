@@ -1082,3 +1082,22 @@ iframe {
     text-align: center;
   }
 }
+.crane-action-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 16px;
+}
+
+@media (max-width: 768px) {
+    .crane-action-buttons {
+        flex-direction: column;
+        gap: 18px;
+        width: 100%;
+    }
+
+    .crane-action-buttons .btn {
+        width: 100%;
+        margin: 0 !important;
+        text-align: center;
+    }
+}
