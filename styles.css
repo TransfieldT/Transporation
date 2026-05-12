@@ -1060,3 +1060,16 @@ iframe {
         padding: 120px 0 60px;
     }
 }
+
+/* Mobile spacing for crane page buttons */
+@media (max-width: 768px) {
+  .why-content .btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 18px;
+  }
+
+  .why-content .btn:last-child {
+    margin-bottom: 0;
+  }
+}
