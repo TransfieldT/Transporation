@@ -858,12 +858,6 @@ body {
     margin-top: 20px;
 }
 
-.spec-list li {
-        flex-direction: column;
-        text-align: center;
-        gap: 5px;
-    }
-
 .spec-list li:last-child {
     border-bottom: none;
 }
@@ -1305,5 +1299,46 @@ iframe {
         min-height: 320px;
         height: auto;
         padding: 120px 0 60px;
+    }
+}
+/* Clean Left Alignment for Crane Specs */
+.spec-list {
+    max-width: 700px;
+    margin-top: 30px;
+    padding: 0;
+}
+
+.spec-list li {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 12px;
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.spec-list li strong {
+    min-width: 160px;
+    text-align: left;
+    font-weight: 700;
+    color: var(--clr-dark);
+}
+
+.spec-list li span {
+    flex: 1;
+    text-align: left;
+    color: var(--clr-text-light);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .spec-list li {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .spec-list li strong,
+    .spec-list li span {
+        text-align: center;
     }
 }
