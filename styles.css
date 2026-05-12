@@ -1426,17 +1426,19 @@ iframe {
     }
 }
 
-/* Mobile spacing for buttons */
+/* Mobile button spacing fix */
 @media (max-width: 768px) {
 
     .hero-buttons,
     .page-hero .hero-buttons {
-        gap: 16px;
-        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px !important;
+        margin-top: 24px;
     }
 
     .hero-buttons .btn,
     .page-hero .btn {
-        margin-bottom: 10px;
+        width: 100%;
     }
 }
