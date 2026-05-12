@@ -1061,15 +1061,22 @@ iframe {
     }
 }
 
-/* Mobile spacing for crane page buttons */
+/* Fix crane page buttons on mobile */
 @media (max-width: 768px) {
-  .why-content .btn {
-    display: block;
+  .spec-list + div {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
     width: 100%;
-    margin-bottom: 18px;
   }
 
-  .why-content .btn:last-child {
-    margin-bottom: 0;
+  .spec-list + div .btn {
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0 !important;
+  }
+
+  .spec-list + div .btn-outline {
+    margin-left: 0 !important;
   }
 }
