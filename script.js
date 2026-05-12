@@ -1,23 +1,17 @@
-   // =====================================
-// MOBILE NAVIGATION
-// =====================================
-
+    // =====================================
+    // HAMBURGER MENU TOGGLE
+    // =====================================
+    
 document.addEventListener("DOMContentLoaded", function () {
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("navLinks");
 
-    const hamburger = document.getElementById("hamburger");
-    const navLinks = document.getElementById("navLinks");
+  if (!hamburger || !navLinks) return;
 
-    if (hamburger && navLinks) {
-
-        hamburger.addEventListener("click", function () {
-
-            hamburger.classList.toggle("active");
-            navLinks.classList.toggle("active");
-
-        });
-
-    }
-
+  hamburger.onclick = function () {
+    hamburger.classList.toggle("active");
+    navLinks.classList.toggle("active");
+  };
 });
 
 
